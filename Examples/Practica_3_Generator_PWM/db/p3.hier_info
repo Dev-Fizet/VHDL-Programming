@@ -1,0 +1,34 @@
+|p3
+clk => op.CLK
+clk => pulso[0].CLK
+clk => pulso[1].CLK
+clk => pulso[2].CLK
+clk => pulso[3].CLK
+clk => pulso[4].CLK
+clk => pulso[5].CLK
+clk => pulso[6].CLK
+clk => pulso[7].CLK
+clk => pulso[8].CLK
+reset => cnt[0].ACLR
+reset => cnt[1].ACLR
+reset => cnt[2].ACLR
+reset => cnt[3].ACLR
+reset => cnt[4].ACLR
+reset => cnt[5].ACLR
+reset => cnt[6].ACLR
+reset => cnt[7].ACLR
+reset => cnt[8].ACLR
+reset => cnt[9].ACLR
+entrada[0] => LessThan3.IN10
+entrada[1] => LessThan3.IN9
+entrada[2] => LessThan3.IN8
+entrada[3] => LessThan3.IN7
+entrada[4] => LessThan3.IN6
+entrada[5] => LessThan3.IN5
+entrada[6] => LessThan3.IN4
+entrada[7] => LessThan3.IN3
+entrada[8] => LessThan3.IN2
+entrada[9] => LessThan3.IN1
+salida <= LessThan3.DB_MAX_OUTPUT_PORT_TYPE
+
+

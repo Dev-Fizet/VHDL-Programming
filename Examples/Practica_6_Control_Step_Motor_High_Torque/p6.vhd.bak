@@ -1,0 +1,50 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.std_logic_arith.ALL;
+USE ieee.std_logic_unsigned.ALL;
+
+ENTITY p6 IS
+
+	PORT (
+		clk, RESET, STOP, DIR : IN STD_LOGIC;
+		DATO_MOTOR : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)); --Salida
+
+END;
+
+ARCHITECTURE Config OF p6 IS
+	CONSTANT pulso_maximo : NATURAL := 25000000;
+	SIGNAL op : STD_LOGIC;
+	TYPE state_type IS (UNO, DOS, TRES, CUATRO);
+	SIGNAL estado, estado_siguiente : state_type;
+BEGIN
+	PROCESS (CLK) --Timer 
+		VARIABLE pulso : NATURAL RANGE 0 TO pulso_maximo;
+	BEGIN
+		IF (CLK'Event AND CLK = '1' AND pulso < (pulso_maximo/2) - 1) THEN
+			op <= '1';
+			pulso := pulso + 1;--Init of the timer 0 to 24,999,999 ticks Out=ON
+		ELSIF (CLK'Event AND CLK = '1' AND pulso < pulso_maximo - 1) THEN
+			op <= '0';
+			pulso := pulso + 1; --Init of the timer 25,000,000 to 49,999,999 tick Out= OFF
+		ELSIF (CLK'Event AND CLK = '1' AND pulso < pulso_maximo) THEN
+			op <= '1';
+			pulso := 0; --Init of reset timer in 50,000,000 ticks Out= ON and reset count of pulso
+		END IF;
+	END PROCESS;
+
+	PROCESS (op, reset_n)
+	BEGIN
+		IF reset_n = '0' THEN
+			contador <= (OTHERS => '0');
+		ELSIF op'event AND op = '1' THEN
+			IF a_d = '1' THEN
+				contador <= STD_LOGIC_VECTOR(contador + 1);
+			ELSE
+				contador <= STD_LOGIC_VECTOR(contador - 1);
+			END IF;
+		END IF;
+	END PROCESS;
+
+	s <= contador;
+
+END Config;

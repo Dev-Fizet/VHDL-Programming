@@ -1,0 +1,30 @@
+|p2
+CLK => op.CLK
+CLK => pulso[0].CLK
+CLK => pulso[1].CLK
+CLK => pulso[2].CLK
+CLK => pulso[3].CLK
+CLK => pulso[4].CLK
+CLK => pulso[5].CLK
+CLK => pulso[6].CLK
+CLK => pulso[7].CLK
+CLK => pulso[8].CLK
+CLK => pulso[9].CLK
+CLK => pulso[10].CLK
+CLK => pulso[11].CLK
+CLK => pulso[12].CLK
+CLK => pulso[13].CLK
+reset => contador[0].ACLR
+reset => contador[1].ACLR
+reset => contador[2].ACLR
+reset => contador[3].ACLR
+reset => contador[4].ACLR
+reset => contador[5].ACLR
+reset => contador[6].ACLR
+reset => contador[7].ACLR
+reset => contador[8].ACLR
+reset => contador[9].ACLR
+reset => temporal.ACLR
+Out_1 <= temporal.DB_MAX_OUTPUT_PORT_TYPE
+
+
