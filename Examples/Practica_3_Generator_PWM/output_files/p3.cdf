@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP2C5T144) Path("C:/altera/Practicas U2/Practica_3/output_files/") File("p3.sof") MfrSpec(OpMask(1));
+		Device PartName(EP2C5T144) Path("C:/Users/FIZET-ACER/Documents/GitHub/VHDL-Programming/Examples/Practica_3_Generator_PWM/output_files/") File("p3.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
