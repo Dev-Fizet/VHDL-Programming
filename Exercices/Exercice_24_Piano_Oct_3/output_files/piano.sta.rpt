@@ -1,0 +1,1101 @@
+TimeQuest Timing Analyzer report for piano
+Sat Oct 08 20:49:26 2022
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow Model Fmax Summary
+  6. Slow Model Setup Summary
+  7. Slow Model Hold Summary
+  8. Slow Model Recovery Summary
+  9. Slow Model Removal Summary
+ 10. Slow Model Minimum Pulse Width Summary
+ 11. Slow Model Setup: 'clk'
+ 12. Slow Model Hold: 'clk'
+ 13. Slow Model Minimum Pulse Width: 'clk'
+ 14. Clock to Output Times
+ 15. Minimum Clock to Output Times
+ 16. Propagation Delay
+ 17. Minimum Propagation Delay
+ 18. Fast Model Setup Summary
+ 19. Fast Model Hold Summary
+ 20. Fast Model Recovery Summary
+ 21. Fast Model Removal Summary
+ 22. Fast Model Minimum Pulse Width Summary
+ 23. Fast Model Setup: 'clk'
+ 24. Fast Model Hold: 'clk'
+ 25. Fast Model Minimum Pulse Width: 'clk'
+ 26. Clock to Output Times
+ 27. Minimum Clock to Output Times
+ 28. Propagation Delay
+ 29. Minimum Propagation Delay
+ 30. Multicorner Timing Analysis Summary
+ 31. Clock to Output Times
+ 32. Minimum Clock to Output Times
+ 33. Progagation Delay
+ 34. Minimum Progagation Delay
+ 35. Setup Transfers
+ 36. Hold Transfers
+ 37. Report TCCS
+ 38. Report RSKM
+ 39. Unconstrained Paths
+ 40. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                      ;
++--------------------+-------------------------------------------------------------------+
+; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; piano                                                             ;
+; Device Family      ; Cyclone II                                                        ;
+; Device Name        ; EP2C5T144C8                                                       ;
+; Timing Models      ; Final                                                             ;
+; Delay Model        ; Combined                                                          ;
+; Rise/Fall Delays   ; Unavailable                                                       ;
++--------------------+-------------------------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++--------------------------------------------------+
+; Slow Model Fmax Summary                          ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 167.14 MHz ; 167.14 MHz      ; clk        ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++--------------------------------+
+; Slow Model Setup Summary       ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -4.983 ; -610.477      ;
++-------+--------+---------------+
+
+
++-------------------------------+
+; Slow Model Hold Summary       ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clk   ; 0.499 ; 0.000         ;
++-------+-------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Slow Model Minimum Pulse Width Summary ;
++-------+--------+-----------------------+
+; Clock ; Slack  ; End Point TNS         ;
++-------+--------+-----------------------+
+; clk   ; -1.941 ; -208.217              ;
++-------+--------+-----------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'clk'                                                                                                    ;
++--------+----------------------+----------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node            ; To Node              ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------+----------------------+--------------+-------------+--------------+------------+------------+
+; -4.983 ; \process_4:pulso[7]  ; \process_4:pulso[18] ; clk          ; clk         ; 1.000        ; 0.004      ; 6.027      ;
+; -4.902 ; \process_3:pulso[4]  ; \process_3:pulso[18] ; clk          ; clk         ; 1.000        ; 0.003      ; 5.945      ;
+; -4.860 ; \process_3:pulso[3]  ; \process_3:pulso[18] ; clk          ; clk         ; 1.000        ; 0.003      ; 5.903      ;
+; -4.812 ; \process_3:pulso[1]  ; \process_3:pulso[18] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.851      ;
+; -4.805 ; \process_6:pulso[3]  ; \process_6:pulso[14] ; clk          ; clk         ; 1.000        ; 0.002      ; 5.847      ;
+; -4.804 ; \process_6:pulso[3]  ; \process_6:pulso[15] ; clk          ; clk         ; 1.000        ; 0.002      ; 5.846      ;
+; -4.794 ; \process_1:pulso[10] ; \process_1:pulso[14] ; clk          ; clk         ; 1.000        ; -0.007     ; 5.827      ;
+; -4.784 ; \process_3:pulso[4]  ; \process_3:pulso[12] ; clk          ; clk         ; 1.000        ; 0.003      ; 5.827      ;
+; -4.784 ; \process_5:pulso[1]  ; \process_5:pulso[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.824      ;
+; -4.784 ; \process_5:pulso[1]  ; \process_5:pulso[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.824      ;
+; -4.784 ; \process_5:pulso[1]  ; \process_5:pulso[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.824      ;
+; -4.784 ; \process_5:pulso[1]  ; \process_5:pulso[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.824      ;
+; -4.764 ; \process_3:pulso[4]  ; \process_3:pulso[1]  ; clk          ; clk         ; 1.000        ; 0.004      ; 5.808      ;
+; -4.764 ; \process_3:pulso[4]  ; \process_3:pulso[2]  ; clk          ; clk         ; 1.000        ; 0.004      ; 5.808      ;
+; -4.764 ; \process_3:pulso[4]  ; \process_3:pulso[0]  ; clk          ; clk         ; 1.000        ; 0.004      ; 5.808      ;
+; -4.759 ; \process_6:pulso[1]  ; \process_6:pulso[14] ; clk          ; clk         ; 1.000        ; 0.002      ; 5.801      ;
+; -4.758 ; \process_6:pulso[1]  ; \process_6:pulso[15] ; clk          ; clk         ; 1.000        ; 0.002      ; 5.800      ;
+; -4.742 ; \process_3:pulso[3]  ; \process_3:pulso[12] ; clk          ; clk         ; 1.000        ; 0.003      ; 5.785      ;
+; -4.742 ; \process_5:pulso[0]  ; \process_5:pulso[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.782      ;
+; -4.742 ; \process_5:pulso[0]  ; \process_5:pulso[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.782      ;
+; -4.742 ; \process_5:pulso[0]  ; \process_5:pulso[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.782      ;
+; -4.742 ; \process_5:pulso[0]  ; \process_5:pulso[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.782      ;
+; -4.732 ; \process_2:pulso[1]  ; \process_2:pulso[15] ; clk          ; clk         ; 1.000        ; 0.011      ; 5.783      ;
+; -4.732 ; \process_2:pulso[1]  ; \process_2:pulso[13] ; clk          ; clk         ; 1.000        ; 0.011      ; 5.783      ;
+; -4.727 ; pulso[4]             ; pulso[2]             ; clk          ; clk         ; 1.000        ; -0.001     ; 5.766      ;
+; -4.727 ; pulso[4]             ; pulso[3]             ; clk          ; clk         ; 1.000        ; -0.001     ; 5.766      ;
+; -4.727 ; pulso[4]             ; pulso[5]             ; clk          ; clk         ; 1.000        ; -0.001     ; 5.766      ;
+; -4.722 ; \process_5:pulso[11] ; \process_5:pulso[1]  ; clk          ; clk         ; 1.000        ; 0.005      ; 5.767      ;
+; -4.722 ; \process_5:pulso[11] ; \process_5:pulso[2]  ; clk          ; clk         ; 1.000        ; 0.005      ; 5.767      ;
+; -4.722 ; \process_5:pulso[11] ; \process_5:pulso[3]  ; clk          ; clk         ; 1.000        ; 0.005      ; 5.767      ;
+; -4.722 ; \process_5:pulso[11] ; \process_5:pulso[0]  ; clk          ; clk         ; 1.000        ; 0.005      ; 5.767      ;
+; -4.722 ; \process_3:pulso[3]  ; \process_3:pulso[1]  ; clk          ; clk         ; 1.000        ; 0.004      ; 5.766      ;
+; -4.722 ; \process_3:pulso[3]  ; \process_3:pulso[2]  ; clk          ; clk         ; 1.000        ; 0.004      ; 5.766      ;
+; -4.722 ; \process_3:pulso[3]  ; \process_3:pulso[0]  ; clk          ; clk         ; 1.000        ; 0.004      ; 5.766      ;
+; -4.709 ; \process_1:pulso[10] ; \process_1:pulso[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.749      ;
+; -4.694 ; \process_3:pulso[1]  ; \process_3:pulso[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.733      ;
+; -4.682 ; \process_4:pulso[7]  ; \process_4:pulso[13] ; clk          ; clk         ; 1.000        ; 0.001      ; 5.723      ;
+; -4.682 ; \process_4:pulso[7]  ; \process_4:pulso[9]  ; clk          ; clk         ; 1.000        ; 0.001      ; 5.723      ;
+; -4.682 ; \process_4:pulso[7]  ; \process_4:pulso[11] ; clk          ; clk         ; 1.000        ; 0.001      ; 5.723      ;
+; -4.674 ; \process_3:pulso[4]  ; \process_3:pulso[16] ; clk          ; clk         ; 1.000        ; 0.003      ; 5.717      ;
+; -4.674 ; \process_3:pulso[1]  ; \process_3:pulso[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.714      ;
+; -4.674 ; \process_3:pulso[1]  ; \process_3:pulso[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.714      ;
+; -4.674 ; \process_3:pulso[1]  ; \process_3:pulso[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.714      ;
+; -4.667 ; \process_3:pulso[5]  ; \process_3:pulso[18] ; clk          ; clk         ; 1.000        ; 0.003      ; 5.710      ;
+; -4.666 ; \process_3:pulso[4]  ; \process_3:pulso[13] ; clk          ; clk         ; 1.000        ; 0.001      ; 5.707      ;
+; -4.656 ; \process_4:pulso[4]  ; \process_4:pulso[18] ; clk          ; clk         ; 1.000        ; 0.004      ; 5.700      ;
+; -4.653 ; \process_4:pulso[7]  ; \process_4:pulso[1]  ; clk          ; clk         ; 1.000        ; -0.002     ; 5.691      ;
+; -4.653 ; \process_4:pulso[7]  ; \process_4:pulso[2]  ; clk          ; clk         ; 1.000        ; -0.002     ; 5.691      ;
+; -4.653 ; \process_4:pulso[7]  ; \process_4:pulso[0]  ; clk          ; clk         ; 1.000        ; -0.002     ; 5.691      ;
+; -4.652 ; \process_2:pulso[14] ; \process_2:pulso[15] ; clk          ; clk         ; 1.000        ; 0.011      ; 5.703      ;
+; -4.652 ; \process_2:pulso[14] ; \process_2:pulso[13] ; clk          ; clk         ; 1.000        ; 0.011      ; 5.703      ;
+; -4.650 ; \process_2:pulso[9]  ; \process_2:pulso[15] ; clk          ; clk         ; 1.000        ; 0.011      ; 5.701      ;
+; -4.650 ; \process_2:pulso[9]  ; \process_2:pulso[13] ; clk          ; clk         ; 1.000        ; 0.011      ; 5.701      ;
+; -4.648 ; \process_1:pulso[7]  ; \process_1:pulso[18] ; clk          ; clk         ; 1.000        ; -0.005     ; 5.683      ;
+; -4.645 ; \process_1:pulso[7]  ; \process_1:pulso[15] ; clk          ; clk         ; 1.000        ; 0.002      ; 5.687      ;
+; -4.632 ; \process_3:pulso[3]  ; \process_3:pulso[16] ; clk          ; clk         ; 1.000        ; 0.003      ; 5.675      ;
+; -4.625 ; \process_4:pulso[7]  ; \process_4:pulso[16] ; clk          ; clk         ; 1.000        ; 0.001      ; 5.666      ;
+; -4.625 ; \process_4:pulso[7]  ; \process_4:pulso[15] ; clk          ; clk         ; 1.000        ; 0.001      ; 5.666      ;
+; -4.625 ; \process_4:pulso[7]  ; \process_4:pulso[14] ; clk          ; clk         ; 1.000        ; 0.001      ; 5.666      ;
+; -4.624 ; \process_3:pulso[3]  ; \process_3:pulso[13] ; clk          ; clk         ; 1.000        ; 0.001      ; 5.665      ;
+; -4.612 ; \process_2:pulso[0]  ; \process_2:pulso[15] ; clk          ; clk         ; 1.000        ; 0.011      ; 5.663      ;
+; -4.612 ; \process_2:pulso[0]  ; \process_2:pulso[13] ; clk          ; clk         ; 1.000        ; 0.011      ; 5.663      ;
+; -4.610 ; \process_2:pulso[4]  ; \process_2:pulso[18] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.650      ;
+; -4.590 ; \process_1:pulso[10] ; \process_1:pulso[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.630      ;
+; -4.586 ; \process_1:pulso[9]  ; \process_1:pulso[14] ; clk          ; clk         ; 1.000        ; -0.007     ; 5.619      ;
+; -4.584 ; \process_6:pulso[0]  ; \process_6:pulso[16] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.623      ;
+; -4.584 ; \process_3:pulso[1]  ; \process_3:pulso[16] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.623      ;
+; -4.578 ; \process_6:pulso[3]  ; \process_6:pulso[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.618      ;
+; -4.578 ; \process_6:pulso[3]  ; \process_6:pulso[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.618      ;
+; -4.578 ; \process_6:pulso[3]  ; \process_6:pulso[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.618      ;
+; -4.578 ; \process_6:pulso[3]  ; \process_6:pulso[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.618      ;
+; -4.578 ; \process_6:pulso[3]  ; \process_6:pulso[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.618      ;
+; -4.576 ; \process_3:pulso[1]  ; \process_3:pulso[13] ; clk          ; clk         ; 1.000        ; -0.003     ; 5.613      ;
+; -4.574 ; \process_3:pulso[10] ; \process_3:pulso[12] ; clk          ; clk         ; 1.000        ; 0.003      ; 5.617      ;
+; -4.570 ; \process_1:pulso[10] ; \process_1:pulso[18] ; clk          ; clk         ; 1.000        ; -0.007     ; 5.603      ;
+; -4.562 ; \process_2:pulso[4]  ; \process_2:pulso[17] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.602      ;
+; -4.554 ; \process_3:pulso[10] ; \process_3:pulso[1]  ; clk          ; clk         ; 1.000        ; 0.004      ; 5.598      ;
+; -4.554 ; \process_3:pulso[10] ; \process_3:pulso[2]  ; clk          ; clk         ; 1.000        ; 0.004      ; 5.598      ;
+; -4.554 ; \process_3:pulso[10] ; \process_3:pulso[0]  ; clk          ; clk         ; 1.000        ; 0.004      ; 5.598      ;
+; -4.552 ; \process_2:pulso[6]  ; \process_2:pulso[15] ; clk          ; clk         ; 1.000        ; 0.011      ; 5.603      ;
+; -4.552 ; \process_2:pulso[6]  ; \process_2:pulso[13] ; clk          ; clk         ; 1.000        ; 0.011      ; 5.603      ;
+; -4.551 ; \process_1:pulso[17] ; \process_1:pulso[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.591      ;
+; -4.551 ; \process_1:pulso[0]  ; \process_1:pulso[16] ; clk          ; clk         ; 1.000        ; 0.002      ; 5.593      ;
+; -4.550 ; \process_3:pulso[0]  ; \process_3:pulso[18] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.589      ;
+; -4.549 ; \process_3:pulso[5]  ; \process_3:pulso[12] ; clk          ; clk         ; 1.000        ; 0.003      ; 5.592      ;
+; -4.541 ; \process_1:pulso[7]  ; \process_1:pulso[14] ; clk          ; clk         ; 1.000        ; -0.005     ; 5.576      ;
+; -4.532 ; \process_6:pulso[1]  ; \process_6:pulso[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.572      ;
+; -4.532 ; \process_6:pulso[1]  ; \process_6:pulso[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.572      ;
+; -4.532 ; \process_6:pulso[1]  ; \process_6:pulso[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.572      ;
+; -4.532 ; \process_6:pulso[1]  ; \process_6:pulso[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.572      ;
+; -4.532 ; \process_6:pulso[1]  ; \process_6:pulso[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.572      ;
+; -4.529 ; \process_3:pulso[5]  ; \process_3:pulso[1]  ; clk          ; clk         ; 1.000        ; 0.004      ; 5.573      ;
+; -4.529 ; \process_3:pulso[5]  ; \process_3:pulso[2]  ; clk          ; clk         ; 1.000        ; 0.004      ; 5.573      ;
+; -4.529 ; \process_3:pulso[5]  ; \process_3:pulso[0]  ; clk          ; clk         ; 1.000        ; 0.004      ; 5.573      ;
+; -4.526 ; \process_1:pulso[7]  ; \process_1:pulso[16] ; clk          ; clk         ; 1.000        ; 0.002      ; 5.568      ;
+; -4.516 ; \process_1:pulso[11] ; \process_1:pulso[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.556      ;
+; -4.508 ; pulso[4]             ; pulso[1]             ; clk          ; clk         ; 1.000        ; 0.000      ; 5.548      ;
+; -4.508 ; pulso[4]             ; pulso[4]             ; clk          ; clk         ; 1.000        ; 0.000      ; 5.548      ;
+; -4.508 ; pulso[4]             ; pulso[6]             ; clk          ; clk         ; 1.000        ; 0.000      ; 5.548      ;
+; -4.508 ; pulso[4]             ; pulso[7]             ; clk          ; clk         ; 1.000        ; 0.000      ; 5.548      ;
++--------+----------------------+----------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'clk'                                                                                                    ;
++-------+----------------------+----------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node            ; To Node              ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------+----------------------+--------------+-------------+--------------+------------+------------+
+; 0.499 ; \process_2:pulso[17] ; \process_2:pulso[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; pulso[11]            ; pulso[11]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; pulso[12]            ; pulso[12]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; pulso[13]            ; pulso[13]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; pulso[14]            ; pulso[14]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; pulso[15]            ; pulso[15]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; \process_3:pulso[16] ; \process_3:pulso[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; \process_3:pulso[18] ; \process_3:pulso[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; \process_3:pulso[17] ; \process_3:pulso[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; \process_1:pulso[17] ; \process_1:pulso[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; \process_1:pulso[15] ; \process_1:pulso[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; \process_1:pulso[18] ; \process_1:pulso[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; \process_1:pulso[16] ; \process_1:pulso[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; \process_6:pulso[15] ; \process_6:pulso[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; \process_6:pulso[16] ; \process_6:pulso[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; \process_6:pulso[14] ; \process_6:pulso[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; \process_6:pulso[13] ; \process_6:pulso[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; \process_4:pulso[17] ; \process_4:pulso[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; \process_4:pulso[16] ; \process_4:pulso[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; \process_4:pulso[15] ; \process_4:pulso[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; \process_4:pulso[14] ; \process_4:pulso[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; \process_5:pulso[13] ; \process_5:pulso[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; \process_5:pulso[14] ; \process_5:pulso[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; \process_5:pulso[15] ; \process_5:pulso[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; \process_5:pulso[16] ; \process_5:pulso[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; op1                  ; op1                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; op7                  ; op7                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; op6                  ; op6                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.945 ; \process_1:pulso[18] ; \process_1:pulso[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.251      ;
+; 1.203 ; \process_1:pulso[17] ; \process_1:pulso[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.509      ;
+; 1.270 ; \process_2:pulso[18] ; \process_2:pulso[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.576      ;
+; 1.470 ; \process_6:pulso[17] ; \process_6:pulso[0]  ; clk          ; clk         ; 0.000        ; 0.003      ; 1.779      ;
+; 1.472 ; \process_6:pulso[17] ; \process_6:pulso[1]  ; clk          ; clk         ; 0.000        ; 0.003      ; 1.781      ;
+; 1.474 ; \process_6:pulso[17] ; \process_6:pulso[3]  ; clk          ; clk         ; 0.000        ; 0.003      ; 1.783      ;
+; 1.502 ; \process_4:pulso[18] ; \process_4:pulso[3]  ; clk          ; clk         ; 0.000        ; -0.004     ; 1.804      ;
+; 1.506 ; \process_4:pulso[18] ; \process_4:pulso[4]  ; clk          ; clk         ; 0.000        ; -0.004     ; 1.808      ;
+; 1.511 ; \process_2:pulso[17] ; \process_2:pulso[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.817      ;
+; 1.512 ; \process_2:pulso[17] ; op3                  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.818      ;
+; 1.523 ; pulso[17]            ; pulso[17]            ; clk          ; clk         ; 0.000        ; 0.000      ; 1.829      ;
+; 1.534 ; \process_6:pulso[18] ; \process_6:pulso[5]  ; clk          ; clk         ; 0.000        ; 0.002      ; 1.842      ;
+; 1.537 ; \process_6:pulso[18] ; \process_6:pulso[8]  ; clk          ; clk         ; 0.000        ; 0.002      ; 1.845      ;
+; 1.540 ; \process_6:pulso[18] ; \process_6:pulso[10] ; clk          ; clk         ; 0.000        ; 0.002      ; 1.848      ;
+; 1.542 ; \process_6:pulso[18] ; \process_6:pulso[4]  ; clk          ; clk         ; 0.000        ; 0.002      ; 1.850      ;
+; 1.545 ; \process_6:pulso[18] ; \process_6:pulso[12] ; clk          ; clk         ; 0.000        ; 0.002      ; 1.853      ;
+; 1.547 ; \process_6:pulso[18] ; \process_6:pulso[11] ; clk          ; clk         ; 0.000        ; 0.002      ; 1.855      ;
+; 1.548 ; \process_6:pulso[18] ; \process_6:pulso[9]  ; clk          ; clk         ; 0.000        ; 0.002      ; 1.856      ;
+; 1.573 ; \process_6:pulso[18] ; \process_6:pulso[6]  ; clk          ; clk         ; 0.000        ; 0.002      ; 1.881      ;
+; 1.627 ; op3                  ; op3                  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.933      ;
+; 1.665 ; \process_1:pulso[18] ; \process_1:pulso[2]  ; clk          ; clk         ; 0.000        ; 0.005      ; 1.976      ;
+; 1.717 ; \process_4:pulso[17] ; \process_4:pulso[13] ; clk          ; clk         ; 0.000        ; -0.004     ; 2.019      ;
+; 1.719 ; \process_4:pulso[17] ; \process_4:pulso[11] ; clk          ; clk         ; 0.000        ; -0.004     ; 2.021      ;
+; 1.736 ; \process_6:pulso[7]  ; \process_6:pulso[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.042      ;
+; 1.737 ; \process_4:pulso[18] ; \process_4:pulso[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.043      ;
+; 1.738 ; op2                  ; op2                  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.044      ;
+; 1.740 ; \process_2:pulso[16] ; op3                  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.046      ;
+; 1.744 ; \process_4:pulso[17] ; \process_4:pulso[5]  ; clk          ; clk         ; 0.000        ; -0.005     ; 2.045      ;
+; 1.744 ; \process_4:pulso[17] ; \process_4:pulso[6]  ; clk          ; clk         ; 0.000        ; -0.005     ; 2.045      ;
+; 1.746 ; \process_4:pulso[17] ; \process_4:pulso[7]  ; clk          ; clk         ; 0.000        ; -0.005     ; 2.047      ;
+; 1.763 ; \process_3:pulso[17] ; op4                  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.069      ;
+; 1.783 ; pulso[12]            ; pulso[11]            ; clk          ; clk         ; 0.000        ; 0.000      ; 2.089      ;
+; 1.793 ; \process_6:pulso[2]  ; \process_6:pulso[2]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.099      ;
+; 1.802 ; \process_4:pulso[16] ; op5                  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.108      ;
+; 1.807 ; \process_3:pulso[17] ; \process_3:pulso[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.113      ;
+; 1.815 ; \process_3:pulso[17] ; \process_3:pulso[3]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.121      ;
+; 1.815 ; \process_3:pulso[17] ; \process_3:pulso[4]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.121      ;
+; 1.817 ; \process_3:pulso[17] ; \process_3:pulso[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.123      ;
+; 1.824 ; \process_5:pulso[12] ; \process_5:pulso[4]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.130      ;
+; 1.824 ; \process_5:pulso[12] ; \process_5:pulso[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.130      ;
+; 1.825 ; \process_5:pulso[12] ; \process_5:pulso[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.131      ;
+; 1.829 ; \process_5:pulso[12] ; \process_5:pulso[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.135      ;
+; 1.863 ; \process_6:pulso[17] ; \process_6:pulso[2]  ; clk          ; clk         ; 0.000        ; 0.003      ; 2.172      ;
+; 1.865 ; \process_6:pulso[17] ; \process_6:pulso[7]  ; clk          ; clk         ; 0.000        ; 0.003      ; 2.174      ;
+; 1.870 ; \process_6:pulso[18] ; \process_6:pulso[1]  ; clk          ; clk         ; 0.000        ; 0.003      ; 2.179      ;
+; 1.870 ; \process_6:pulso[18] ; \process_6:pulso[3]  ; clk          ; clk         ; 0.000        ; 0.003      ; 2.179      ;
+; 1.873 ; \process_6:pulso[16] ; \process_6:pulso[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.179      ;
+; 1.875 ; \process_6:pulso[16] ; \process_6:pulso[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.181      ;
+; 1.877 ; \process_6:pulso[16] ; \process_6:pulso[10] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.183      ;
+; 1.879 ; \process_6:pulso[16] ; \process_6:pulso[4]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.185      ;
+; 1.879 ; \process_4:pulso[17] ; \process_4:pulso[18] ; clk          ; clk         ; 0.000        ; -0.001     ; 2.184      ;
+; 1.881 ; \process_6:pulso[16] ; \process_6:pulso[12] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.187      ;
+; 1.882 ; \process_6:pulso[16] ; \process_6:pulso[11] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.188      ;
+; 1.882 ; \process_6:pulso[16] ; \process_6:pulso[9]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.188      ;
+; 1.899 ; \process_1:pulso[18] ; \process_1:pulso[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.205      ;
+; 1.909 ; \process_1:pulso[16] ; \process_1:pulso[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.215      ;
+; 1.909 ; \process_6:pulso[17] ; \process_6:pulso[5]  ; clk          ; clk         ; 0.000        ; 0.002      ; 2.217      ;
+; 1.910 ; \process_1:pulso[16] ; \process_1:pulso[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.216      ;
+; 1.910 ; \process_1:pulso[16] ; \process_1:pulso[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.216      ;
+; 1.912 ; \process_1:pulso[16] ; \process_1:pulso[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.218      ;
+; 1.912 ; \process_6:pulso[17] ; \process_6:pulso[8]  ; clk          ; clk         ; 0.000        ; 0.002      ; 2.220      ;
+; 1.913 ; \process_2:pulso[13] ; \process_2:pulso[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.219      ;
+; 1.913 ; \process_6:pulso[17] ; \process_6:pulso[10] ; clk          ; clk         ; 0.000        ; 0.002      ; 2.221      ;
+; 1.914 ; \process_1:pulso[16] ; \process_1:pulso[4]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.220      ;
+; 1.914 ; \process_1:pulso[16] ; \process_1:pulso[12] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.220      ;
+; 1.915 ; pulso[5]             ; pulso[5]             ; clk          ; clk         ; 0.000        ; 0.000      ; 2.221      ;
+; 1.915 ; \process_6:pulso[17] ; \process_6:pulso[4]  ; clk          ; clk         ; 0.000        ; 0.002      ; 2.223      ;
+; 1.915 ; \process_6:pulso[17] ; \process_6:pulso[12] ; clk          ; clk         ; 0.000        ; 0.002      ; 2.223      ;
+; 1.916 ; \process_4:pulso[1]  ; \process_4:pulso[1]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.222      ;
+; 1.917 ; \process_6:pulso[17] ; \process_6:pulso[11] ; clk          ; clk         ; 0.000        ; 0.002      ; 2.225      ;
+; 1.918 ; \process_6:pulso[17] ; \process_6:pulso[9]  ; clk          ; clk         ; 0.000        ; 0.002      ; 2.226      ;
+; 1.921 ; pulso[16]            ; pulso[16]            ; clk          ; clk         ; 0.000        ; 0.000      ; 2.227      ;
++-------+----------------------+----------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'clk'                                                                 ;
++--------+--------------+----------------+------------------+-------+------------+----------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target               ;
++--------+--------------+----------------+------------------+-------+------------+----------------------+
+; -1.941 ; 1.000        ; 2.941          ; Port Rate        ; clk   ; Rise       ; clk                  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[0]  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[0]  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[10] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[10] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[11] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[11] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[12] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[12] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[13] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[13] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[14] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[14] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[15] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[15] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[16] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[16] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[17] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[17] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[18] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[18] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[1]  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[1]  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[2]  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[2]  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[3]  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[3]  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[4]  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[4]  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[5]  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[5]  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[6]  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[6]  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[7]  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[7]  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[8]  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[8]  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[9]  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[9]  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[0]  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[0]  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[10] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[10] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[11] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[11] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[12] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[12] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[13] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[13] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[14] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[14] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[15] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[15] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[16] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[16] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[17] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[17] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[18] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[18] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[1]  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[1]  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[2]  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[2]  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[3]  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[3]  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[4]  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[4]  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[5]  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[5]  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[6]  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[6]  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[7]  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[7]  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[8]  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[8]  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[9]  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[9]  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_3:pulso[0]  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_3:pulso[0]  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_3:pulso[10] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_3:pulso[10] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_3:pulso[11] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_3:pulso[11] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_3:pulso[12] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_3:pulso[12] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_3:pulso[13] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_3:pulso[13] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_3:pulso[14] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_3:pulso[14] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_3:pulso[15] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_3:pulso[15] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_3:pulso[16] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_3:pulso[16] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_3:pulso[17] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_3:pulso[17] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_3:pulso[18] ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_3:pulso[18] ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_3:pulso[1]  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; clk   ; Rise       ; \process_3:pulso[1]  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; clk   ; Rise       ; \process_3:pulso[2]  ;
++--------+--------------+----------------+------------------+-------+------------+----------------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; LED       ; clk        ; 13.989 ; 13.989 ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                           ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; LED       ; clk        ; 11.200 ; 11.200 ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++--------------------------------------------------------------+
+; Propagation Delay                                            ;
++------------+-------------+--------+--------+--------+--------+
+; Input Port ; Output Port ; RR     ; RF     ; FR     ; FF     ;
++------------+-------------+--------+--------+--------+--------+
+; botones[0] ; LED         ; 15.502 ; 15.480 ; 15.480 ; 15.502 ;
+; botones[1] ; LED         ; 15.458 ; 15.038 ; 15.038 ; 15.458 ;
+; botones[2] ; LED         ; 14.873 ; 15.373 ; 15.373 ; 14.873 ;
+; botones[3] ; LED         ; 10.428 ; 10.371 ; 10.371 ; 10.428 ;
+; botones[4] ; LED         ; 11.471 ; 11.020 ; 11.020 ; 11.471 ;
+; botones[5] ; LED         ; 15.594 ; 14.667 ; 14.667 ; 15.594 ;
+; botones[6] ; LED         ; 15.085 ; 14.664 ; 14.664 ; 15.085 ;
++------------+-------------+--------+--------+--------+--------+
+
+
++--------------------------------------------------------------+
+; Minimum Propagation Delay                                    ;
++------------+-------------+--------+--------+--------+--------+
+; Input Port ; Output Port ; RR     ; RF     ; FR     ; FF     ;
++------------+-------------+--------+--------+--------+--------+
+; botones[0] ; LED         ; 14.653 ; 15.480 ; 15.480 ; 14.653 ;
+; botones[1] ; LED         ; 14.013 ; 15.038 ; 15.038 ; 14.013 ;
+; botones[2] ; LED         ; 14.234 ; 15.373 ; 15.373 ; 14.234 ;
+; botones[3] ; LED         ; 9.846  ; 10.371 ; 10.371 ; 9.846  ;
+; botones[4] ; LED         ; 9.640  ; 11.020 ; 11.020 ; 9.640  ;
+; botones[5] ; LED         ; 13.651 ; 14.667 ; 14.667 ; 13.651 ;
+; botones[6] ; LED         ; 13.634 ; 14.664 ; 14.664 ; 13.634 ;
++------------+-------------+--------+--------+--------+--------+
+
+
++--------------------------------+
+; Fast Model Setup Summary       ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -1.009 ; -106.253      ;
++-------+--------+---------------+
+
+
++-------------------------------+
+; Fast Model Hold Summary       ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clk   ; 0.215 ; 0.000         ;
++-------+-------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Fast Model Minimum Pulse Width Summary ;
++-------+--------+-----------------------+
+; Clock ; Slack  ; End Point TNS         ;
++-------+--------+-----------------------+
+; clk   ; -1.380 ; -140.380              ;
++-------+--------+-----------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'clk'                                                                                                    ;
++--------+----------------------+----------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node            ; To Node              ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------+----------------------+--------------+-------------+--------------+------------+------------+
+; -1.009 ; \process_1:pulso[10] ; \process_1:pulso[14] ; clk          ; clk         ; 1.000        ; -0.013     ; 2.028      ;
+; -0.967 ; \process_1:pulso[9]  ; \process_1:pulso[14] ; clk          ; clk         ; 1.000        ; -0.013     ; 1.986      ;
+; -0.912 ; \process_1:pulso[17] ; \process_1:pulso[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 1.944      ;
+; -0.901 ; \process_2:pulso[4]  ; \process_2:pulso[18] ; clk          ; clk         ; 1.000        ; 0.000      ; 1.933      ;
+; -0.898 ; \process_3:pulso[4]  ; \process_3:pulso[12] ; clk          ; clk         ; 1.000        ; 0.003      ; 1.933      ;
+; -0.897 ; \process_1:pulso[18] ; \process_1:pulso[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 1.929      ;
+; -0.895 ; pulso[4]             ; pulso[2]             ; clk          ; clk         ; 1.000        ; -0.001     ; 1.926      ;
+; -0.895 ; pulso[4]             ; pulso[3]             ; clk          ; clk         ; 1.000        ; -0.001     ; 1.926      ;
+; -0.895 ; pulso[4]             ; pulso[5]             ; clk          ; clk         ; 1.000        ; -0.001     ; 1.926      ;
+; -0.893 ; \process_3:pulso[4]  ; \process_3:pulso[1]  ; clk          ; clk         ; 1.000        ; 0.004      ; 1.929      ;
+; -0.893 ; \process_3:pulso[4]  ; \process_3:pulso[2]  ; clk          ; clk         ; 1.000        ; 0.004      ; 1.929      ;
+; -0.893 ; \process_3:pulso[4]  ; \process_3:pulso[0]  ; clk          ; clk         ; 1.000        ; 0.004      ; 1.929      ;
+; -0.890 ; \process_1:pulso[0]  ; \process_1:pulso[16] ; clk          ; clk         ; 1.000        ; 0.008      ; 1.930      ;
+; -0.889 ; \process_4:pulso[7]  ; \process_4:pulso[13] ; clk          ; clk         ; 1.000        ; 0.001      ; 1.922      ;
+; -0.889 ; \process_4:pulso[7]  ; \process_4:pulso[9]  ; clk          ; clk         ; 1.000        ; 0.001      ; 1.922      ;
+; -0.889 ; \process_4:pulso[7]  ; \process_4:pulso[11] ; clk          ; clk         ; 1.000        ; 0.001      ; 1.922      ;
+; -0.889 ; \process_3:pulso[3]  ; \process_3:pulso[12] ; clk          ; clk         ; 1.000        ; 0.003      ; 1.924      ;
+; -0.886 ; \process_2:pulso[0]  ; \process_2:pulso[18] ; clk          ; clk         ; 1.000        ; -0.013     ; 1.905      ;
+; -0.885 ; \process_2:pulso[14] ; \process_2:pulso[15] ; clk          ; clk         ; 1.000        ; 0.012      ; 1.929      ;
+; -0.885 ; \process_2:pulso[4]  ; \process_2:pulso[17] ; clk          ; clk         ; 1.000        ; 0.000      ; 1.917      ;
+; -0.885 ; \process_2:pulso[14] ; \process_2:pulso[13] ; clk          ; clk         ; 1.000        ; 0.012      ; 1.929      ;
+; -0.885 ; \process_1:pulso[11] ; \process_1:pulso[14] ; clk          ; clk         ; 1.000        ; -0.013     ; 1.904      ;
+; -0.884 ; \process_3:pulso[3]  ; \process_3:pulso[1]  ; clk          ; clk         ; 1.000        ; 0.004      ; 1.920      ;
+; -0.884 ; \process_3:pulso[3]  ; \process_3:pulso[2]  ; clk          ; clk         ; 1.000        ; 0.004      ; 1.920      ;
+; -0.884 ; \process_3:pulso[3]  ; \process_3:pulso[0]  ; clk          ; clk         ; 1.000        ; 0.004      ; 1.920      ;
+; -0.883 ; \process_1:pulso[7]  ; \process_1:pulso[14] ; clk          ; clk         ; 1.000        ; -0.006     ; 1.909      ;
+; -0.880 ; \process_6:pulso[0]  ; \process_6:pulso[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 1.912      ;
+; -0.879 ; \process_2:pulso[9]  ; \process_2:pulso[15] ; clk          ; clk         ; 1.000        ; 0.012      ; 1.923      ;
+; -0.879 ; \process_2:pulso[9]  ; \process_2:pulso[13] ; clk          ; clk         ; 1.000        ; 0.012      ; 1.923      ;
+; -0.875 ; \process_4:pulso[7]  ; \process_4:pulso[1]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.906      ;
+; -0.875 ; \process_4:pulso[7]  ; \process_4:pulso[2]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.906      ;
+; -0.875 ; \process_4:pulso[7]  ; \process_4:pulso[0]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.906      ;
+; -0.874 ; \process_6:pulso[0]  ; \process_6:pulso[18] ; clk          ; clk         ; 1.000        ; -0.002     ; 1.904      ;
+; -0.874 ; \process_5:pulso[11] ; \process_5:pulso[1]  ; clk          ; clk         ; 1.000        ; 0.004      ; 1.910      ;
+; -0.874 ; \process_5:pulso[11] ; \process_5:pulso[2]  ; clk          ; clk         ; 1.000        ; 0.004      ; 1.910      ;
+; -0.874 ; \process_5:pulso[11] ; \process_5:pulso[3]  ; clk          ; clk         ; 1.000        ; 0.004      ; 1.910      ;
+; -0.874 ; \process_5:pulso[11] ; \process_5:pulso[0]  ; clk          ; clk         ; 1.000        ; 0.004      ; 1.910      ;
+; -0.870 ; \process_2:pulso[0]  ; \process_2:pulso[17] ; clk          ; clk         ; 1.000        ; -0.013     ; 1.889      ;
+; -0.868 ; \process_3:pulso[1]  ; \process_3:pulso[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.899      ;
+; -0.863 ; \process_3:pulso[1]  ; \process_3:pulso[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 1.895      ;
+; -0.863 ; \process_3:pulso[1]  ; \process_3:pulso[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 1.895      ;
+; -0.863 ; \process_3:pulso[1]  ; \process_3:pulso[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 1.895      ;
+; -0.859 ; \process_1:pulso[4]  ; \process_1:pulso[14] ; clk          ; clk         ; 1.000        ; -0.014     ; 1.877      ;
+; -0.859 ; \process_2:pulso[1]  ; \process_2:pulso[15] ; clk          ; clk         ; 1.000        ; 0.012      ; 1.903      ;
+; -0.859 ; \process_2:pulso[1]  ; \process_2:pulso[13] ; clk          ; clk         ; 1.000        ; 0.012      ; 1.903      ;
+; -0.855 ; \process_5:pulso[1]  ; \process_5:pulso[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 1.887      ;
+; -0.855 ; \process_5:pulso[1]  ; \process_5:pulso[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 1.887      ;
+; -0.855 ; \process_5:pulso[1]  ; \process_5:pulso[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 1.887      ;
+; -0.855 ; \process_5:pulso[1]  ; \process_5:pulso[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 1.887      ;
+; -0.847 ; \process_2:pulso[6]  ; \process_2:pulso[15] ; clk          ; clk         ; 1.000        ; 0.012      ; 1.891      ;
+; -0.847 ; \process_2:pulso[6]  ; \process_2:pulso[13] ; clk          ; clk         ; 1.000        ; 0.012      ; 1.891      ;
+; -0.846 ; \process_1:pulso[1]  ; \process_1:pulso[14] ; clk          ; clk         ; 1.000        ; -0.006     ; 1.872      ;
+; -0.846 ; \process_5:pulso[0]  ; \process_5:pulso[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 1.878      ;
+; -0.846 ; \process_5:pulso[0]  ; \process_5:pulso[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 1.878      ;
+; -0.846 ; \process_5:pulso[0]  ; \process_5:pulso[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 1.878      ;
+; -0.846 ; \process_5:pulso[0]  ; \process_5:pulso[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 1.878      ;
+; -0.844 ; \process_4:pulso[7]  ; \process_4:pulso[18] ; clk          ; clk         ; 1.000        ; 0.003      ; 1.879      ;
+; -0.843 ; \process_1:pulso[5]  ; \process_1:pulso[14] ; clk          ; clk         ; 1.000        ; -0.014     ; 1.861      ;
+; -0.841 ; \process_1:pulso[14] ; \process_1:pulso[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 1.873      ;
+; -0.837 ; \process_1:pulso[0]  ; \process_1:pulso[14] ; clk          ; clk         ; 1.000        ; -0.006     ; 1.863      ;
+; -0.836 ; \process_3:pulso[10] ; \process_3:pulso[12] ; clk          ; clk         ; 1.000        ; 0.002      ; 1.870      ;
+; -0.835 ; \process_6:pulso[0]  ; \process_6:pulso[17] ; clk          ; clk         ; 1.000        ; -0.002     ; 1.865      ;
+; -0.832 ; \process_2:pulso[0]  ; \process_2:pulso[15] ; clk          ; clk         ; 1.000        ; 0.012      ; 1.876      ;
+; -0.832 ; \process_2:pulso[0]  ; \process_2:pulso[13] ; clk          ; clk         ; 1.000        ; 0.012      ; 1.876      ;
+; -0.831 ; \process_3:pulso[10] ; \process_3:pulso[1]  ; clk          ; clk         ; 1.000        ; 0.003      ; 1.866      ;
+; -0.831 ; \process_3:pulso[10] ; \process_3:pulso[2]  ; clk          ; clk         ; 1.000        ; 0.003      ; 1.866      ;
+; -0.831 ; \process_3:pulso[10] ; \process_3:pulso[0]  ; clk          ; clk         ; 1.000        ; 0.003      ; 1.866      ;
+; -0.829 ; \process_3:pulso[3]  ; \process_3:pulso[18] ; clk          ; clk         ; 1.000        ; 0.003      ; 1.864      ;
+; -0.826 ; \process_4:pulso[0]  ; \process_4:pulso[18] ; clk          ; clk         ; 1.000        ; 0.004      ; 1.862      ;
+; -0.822 ; pulso[4]             ; pulso[1]             ; clk          ; clk         ; 1.000        ; 0.000      ; 1.854      ;
+; -0.822 ; pulso[4]             ; pulso[4]             ; clk          ; clk         ; 1.000        ; 0.000      ; 1.854      ;
+; -0.822 ; pulso[4]             ; pulso[6]             ; clk          ; clk         ; 1.000        ; 0.000      ; 1.854      ;
+; -0.822 ; pulso[4]             ; pulso[7]             ; clk          ; clk         ; 1.000        ; 0.000      ; 1.854      ;
+; -0.822 ; pulso[4]             ; pulso[8]             ; clk          ; clk         ; 1.000        ; 0.000      ; 1.854      ;
+; -0.822 ; pulso[4]             ; pulso[9]             ; clk          ; clk         ; 1.000        ; 0.000      ; 1.854      ;
+; -0.822 ; pulso[4]             ; pulso[10]            ; clk          ; clk         ; 1.000        ; 0.000      ; 1.854      ;
+; -0.822 ; pulso[4]             ; pulso[0]             ; clk          ; clk         ; 1.000        ; 0.000      ; 1.854      ;
+; -0.822 ; \process_1:pulso[1]  ; \process_1:pulso[16] ; clk          ; clk         ; 1.000        ; 0.008      ; 1.862      ;
+; -0.819 ; \process_1:pulso[4]  ; \process_1:pulso[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 1.851      ;
+; -0.818 ; \process_3:pulso[5]  ; \process_3:pulso[12] ; clk          ; clk         ; 1.000        ; 0.003      ; 1.853      ;
+; -0.816 ; \process_1:pulso[3]  ; \process_1:pulso[14] ; clk          ; clk         ; 1.000        ; -0.006     ; 1.842      ;
+; -0.816 ; \process_3:pulso[4]  ; \process_3:pulso[18] ; clk          ; clk         ; 1.000        ; 0.003      ; 1.851      ;
+; -0.813 ; \process_3:pulso[5]  ; \process_3:pulso[1]  ; clk          ; clk         ; 1.000        ; 0.004      ; 1.849      ;
+; -0.813 ; \process_3:pulso[5]  ; \process_3:pulso[2]  ; clk          ; clk         ; 1.000        ; 0.004      ; 1.849      ;
+; -0.813 ; \process_3:pulso[5]  ; \process_3:pulso[0]  ; clk          ; clk         ; 1.000        ; 0.004      ; 1.849      ;
+; -0.813 ; \process_3:pulso[6]  ; \process_3:pulso[18] ; clk          ; clk         ; 1.000        ; 0.002      ; 1.847      ;
+; -0.811 ; \process_2:pulso[3]  ; \process_2:pulso[18] ; clk          ; clk         ; 1.000        ; -0.013     ; 1.830      ;
+; -0.811 ; \process_3:pulso[0]  ; \process_3:pulso[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.842      ;
+; -0.809 ; \process_5:pulso[0]  ; \process_5:pulso[18] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.840      ;
+; -0.808 ; \process_1:pulso[10] ; \process_1:pulso[18] ; clk          ; clk         ; 1.000        ; -0.013     ; 1.827      ;
+; -0.806 ; \process_3:pulso[0]  ; \process_3:pulso[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 1.838      ;
+; -0.806 ; \process_3:pulso[0]  ; \process_3:pulso[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 1.838      ;
+; -0.806 ; \process_3:pulso[0]  ; \process_3:pulso[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 1.838      ;
+; -0.804 ; \process_4:pulso[7]  ; \process_4:pulso[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 1.836      ;
+; -0.804 ; \process_4:pulso[7]  ; \process_4:pulso[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 1.836      ;
+; -0.804 ; \process_4:pulso[7]  ; \process_4:pulso[6]  ; clk          ; clk         ; 1.000        ; 0.000      ; 1.836      ;
+; -0.804 ; \process_4:pulso[7]  ; \process_4:pulso[4]  ; clk          ; clk         ; 1.000        ; 0.000      ; 1.836      ;
+; -0.804 ; \process_4:pulso[7]  ; \process_4:pulso[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 1.836      ;
+; -0.804 ; \process_4:pulso[7]  ; \process_4:pulso[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 1.836      ;
+; -0.804 ; \process_4:pulso[7]  ; \process_4:pulso[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 1.836      ;
++--------+----------------------+----------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'clk'                                                                                                    ;
++-------+----------------------+----------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node            ; To Node              ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------+----------------------+--------------+-------------+--------------+------------+------------+
+; 0.215 ; \process_2:pulso[17] ; \process_2:pulso[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pulso[11]            ; pulso[11]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pulso[12]            ; pulso[12]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pulso[13]            ; pulso[13]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pulso[14]            ; pulso[14]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pulso[15]            ; pulso[15]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; \process_3:pulso[16] ; \process_3:pulso[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; \process_3:pulso[18] ; \process_3:pulso[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; \process_3:pulso[17] ; \process_3:pulso[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; \process_1:pulso[17] ; \process_1:pulso[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; \process_1:pulso[15] ; \process_1:pulso[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; \process_1:pulso[18] ; \process_1:pulso[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; \process_1:pulso[16] ; \process_1:pulso[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; \process_6:pulso[15] ; \process_6:pulso[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; \process_6:pulso[16] ; \process_6:pulso[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; \process_6:pulso[14] ; \process_6:pulso[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; \process_6:pulso[13] ; \process_6:pulso[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; \process_4:pulso[17] ; \process_4:pulso[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; \process_4:pulso[16] ; \process_4:pulso[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; \process_4:pulso[15] ; \process_4:pulso[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; \process_4:pulso[14] ; \process_4:pulso[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; \process_5:pulso[13] ; \process_5:pulso[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; \process_5:pulso[14] ; \process_5:pulso[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; \process_5:pulso[15] ; \process_5:pulso[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; \process_5:pulso[16] ; \process_5:pulso[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; op1                  ; op1                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; op7                  ; op7                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; op6                  ; op6                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.301 ; \process_1:pulso[18] ; \process_1:pulso[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.453      ;
+; 0.375 ; \process_1:pulso[17] ; \process_1:pulso[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.527      ;
+; 0.391 ; \process_2:pulso[18] ; \process_2:pulso[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.543      ;
+; 0.462 ; \process_6:pulso[17] ; \process_6:pulso[1]  ; clk          ; clk         ; 0.000        ; 0.002      ; 0.616      ;
+; 0.462 ; \process_6:pulso[17] ; \process_6:pulso[0]  ; clk          ; clk         ; 0.000        ; 0.002      ; 0.616      ;
+; 0.464 ; \process_6:pulso[17] ; \process_6:pulso[3]  ; clk          ; clk         ; 0.000        ; 0.002      ; 0.618      ;
+; 0.472 ; pulso[17]            ; pulso[17]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.624      ;
+; 0.472 ; \process_4:pulso[18] ; \process_4:pulso[3]  ; clk          ; clk         ; 0.000        ; -0.003     ; 0.621      ;
+; 0.476 ; \process_4:pulso[18] ; \process_4:pulso[4]  ; clk          ; clk         ; 0.000        ; -0.003     ; 0.625      ;
+; 0.478 ; \process_2:pulso[17] ; \process_2:pulso[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.630      ;
+; 0.479 ; \process_2:pulso[17] ; op3                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.631      ;
+; 0.484 ; \process_6:pulso[18] ; \process_6:pulso[5]  ; clk          ; clk         ; 0.000        ; 0.002      ; 0.638      ;
+; 0.488 ; \process_6:pulso[18] ; \process_6:pulso[8]  ; clk          ; clk         ; 0.000        ; 0.002      ; 0.642      ;
+; 0.491 ; \process_6:pulso[18] ; \process_6:pulso[10] ; clk          ; clk         ; 0.000        ; 0.002      ; 0.645      ;
+; 0.493 ; \process_6:pulso[18] ; \process_6:pulso[4]  ; clk          ; clk         ; 0.000        ; 0.002      ; 0.647      ;
+; 0.496 ; \process_6:pulso[18] ; \process_6:pulso[12] ; clk          ; clk         ; 0.000        ; 0.002      ; 0.650      ;
+; 0.497 ; \process_6:pulso[18] ; \process_6:pulso[6]  ; clk          ; clk         ; 0.000        ; 0.002      ; 0.651      ;
+; 0.498 ; \process_6:pulso[18] ; \process_6:pulso[11] ; clk          ; clk         ; 0.000        ; 0.002      ; 0.652      ;
+; 0.499 ; \process_6:pulso[18] ; \process_6:pulso[9]  ; clk          ; clk         ; 0.000        ; 0.002      ; 0.653      ;
+; 0.516 ; \process_1:pulso[18] ; \process_1:pulso[2]  ; clk          ; clk         ; 0.000        ; 0.006      ; 0.674      ;
+; 0.517 ; op3                  ; op3                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.669      ;
+; 0.520 ; op2                  ; op2                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.672      ;
+; 0.523 ; \process_6:pulso[7]  ; \process_6:pulso[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.675      ;
+; 0.525 ; \process_4:pulso[18] ; \process_4:pulso[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.677      ;
+; 0.535 ; \process_3:pulso[17] ; op4                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.687      ;
+; 0.537 ; \process_6:pulso[2]  ; \process_6:pulso[2]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.689      ;
+; 0.544 ; \process_4:pulso[17] ; \process_4:pulso[13] ; clk          ; clk         ; 0.000        ; -0.003     ; 0.693      ;
+; 0.547 ; \process_4:pulso[17] ; \process_4:pulso[11] ; clk          ; clk         ; 0.000        ; -0.003     ; 0.696      ;
+; 0.550 ; pulso[12]            ; pulso[11]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.702      ;
+; 0.555 ; \process_3:pulso[17] ; \process_3:pulso[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.707      ;
+; 0.561 ; \process_3:pulso[17] ; \process_3:pulso[3]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.713      ;
+; 0.561 ; \process_3:pulso[17] ; \process_3:pulso[4]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.713      ;
+; 0.561 ; \process_4:pulso[17] ; \process_4:pulso[5]  ; clk          ; clk         ; 0.000        ; -0.004     ; 0.709      ;
+; 0.562 ; \process_4:pulso[17] ; \process_4:pulso[6]  ; clk          ; clk         ; 0.000        ; -0.004     ; 0.710      ;
+; 0.562 ; \process_4:pulso[17] ; \process_4:pulso[7]  ; clk          ; clk         ; 0.000        ; -0.004     ; 0.710      ;
+; 0.563 ; \process_3:pulso[17] ; \process_3:pulso[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.715      ;
+; 0.567 ; \process_6:pulso[18] ; \process_6:pulso[1]  ; clk          ; clk         ; 0.000        ; 0.002      ; 0.721      ;
+; 0.567 ; \process_6:pulso[18] ; \process_6:pulso[3]  ; clk          ; clk         ; 0.000        ; 0.002      ; 0.721      ;
+; 0.571 ; \process_2:pulso[16] ; op3                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.723      ;
+; 0.579 ; pulso[16]            ; pulso[16]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.580 ; \process_5:pulso[12] ; \process_5:pulso[4]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.732      ;
+; 0.580 ; \process_5:pulso[12] ; \process_5:pulso[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.732      ;
+; 0.580 ; \process_6:pulso[17] ; \process_6:pulso[2]  ; clk          ; clk         ; 0.000        ; 0.002      ; 0.734      ;
+; 0.581 ; \process_5:pulso[12] ; \process_5:pulso[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.733      ;
+; 0.582 ; \process_6:pulso[17] ; \process_6:pulso[7]  ; clk          ; clk         ; 0.000        ; 0.002      ; 0.736      ;
+; 0.584 ; \process_5:pulso[12] ; \process_5:pulso[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.736      ;
+; 0.585 ; \process_1:pulso[18] ; \process_1:pulso[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.737      ;
+; 0.585 ; \process_4:pulso[17] ; \process_4:pulso[18] ; clk          ; clk         ; 0.000        ; -0.001     ; 0.736      ;
+; 0.587 ; \process_6:pulso[17] ; \process_6:pulso[5]  ; clk          ; clk         ; 0.000        ; 0.002      ; 0.741      ;
+; 0.588 ; \process_4:pulso[16] ; op5                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.740      ;
+; 0.589 ; \process_6:pulso[17] ; \process_6:pulso[8]  ; clk          ; clk         ; 0.000        ; 0.002      ; 0.743      ;
+; 0.590 ; \process_3:pulso[18] ; \process_3:pulso[17] ; clk          ; clk         ; 0.000        ; -0.003     ; 0.739      ;
+; 0.590 ; \process_6:pulso[17] ; \process_6:pulso[10] ; clk          ; clk         ; 0.000        ; 0.002      ; 0.744      ;
+; 0.591 ; \process_6:pulso[17] ; \process_6:pulso[4]  ; clk          ; clk         ; 0.000        ; 0.002      ; 0.745      ;
+; 0.594 ; \process_6:pulso[17] ; \process_6:pulso[12] ; clk          ; clk         ; 0.000        ; 0.002      ; 0.748      ;
+; 0.595 ; \process_6:pulso[17] ; \process_6:pulso[6]  ; clk          ; clk         ; 0.000        ; 0.002      ; 0.749      ;
+; 0.595 ; \process_6:pulso[17] ; \process_6:pulso[11] ; clk          ; clk         ; 0.000        ; 0.002      ; 0.749      ;
+; 0.596 ; \process_6:pulso[17] ; \process_6:pulso[9]  ; clk          ; clk         ; 0.000        ; 0.002      ; 0.750      ;
+; 0.597 ; pulso[10]            ; pulso[12]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.749      ;
+; 0.598 ; \process_1:pulso[16] ; \process_1:pulso[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.750      ;
+; 0.598 ; \process_6:pulso[16] ; \process_6:pulso[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.750      ;
+; 0.599 ; \process_1:pulso[16] ; \process_1:pulso[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.751      ;
+; 0.599 ; \process_1:pulso[16] ; \process_1:pulso[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.751      ;
+; 0.601 ; \process_2:pulso[13] ; \process_2:pulso[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.753      ;
+; 0.601 ; \process_1:pulso[16] ; \process_1:pulso[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.753      ;
+; 0.601 ; \process_6:pulso[18] ; \process_6:pulso[0]  ; clk          ; clk         ; 0.000        ; 0.002      ; 0.755      ;
+; 0.601 ; \process_6:pulso[16] ; \process_6:pulso[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.753      ;
+; 0.602 ; \process_1:pulso[16] ; \process_1:pulso[4]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.754      ;
+; 0.602 ; \process_6:pulso[18] ; \process_6:pulso[2]  ; clk          ; clk         ; 0.000        ; 0.002      ; 0.756      ;
+; 0.603 ; \process_1:pulso[16] ; \process_1:pulso[12] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.755      ;
+; 0.603 ; \process_6:pulso[16] ; \process_6:pulso[10] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.755      ;
+; 0.604 ; pulso[5]             ; pulso[5]             ; clk          ; clk         ; 0.000        ; 0.000      ; 0.756      ;
++-------+----------------------+----------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'clk'                                                                 ;
++--------+--------------+----------------+------------------+-------+------------+----------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target               ;
++--------+--------------+----------------+------------------+-------+------------+----------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; clk   ; Rise       ; clk                  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[0]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[0]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[10] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[10] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[11] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[11] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[12] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[12] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[13] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[13] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[14] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[14] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[15] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[15] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[16] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[16] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[17] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[17] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[18] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[18] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[1]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[1]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[2]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[2]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[3]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[3]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[4]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[4]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[5]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[5]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[6]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[6]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[7]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[7]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[8]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[8]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_1:pulso[9]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_1:pulso[9]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[0]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[0]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[10] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[10] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[11] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[11] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[12] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[12] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[13] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[13] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[14] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[14] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[15] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[15] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[16] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[16] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[17] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[17] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[18] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[18] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[1]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[1]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[2]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[2]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[3]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[3]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[4]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[4]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[5]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[5]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[6]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[6]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[7]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[7]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[8]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[8]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_2:pulso[9]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_2:pulso[9]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_3:pulso[0]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_3:pulso[0]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_3:pulso[10] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_3:pulso[10] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_3:pulso[11] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_3:pulso[11] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_3:pulso[12] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_3:pulso[12] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_3:pulso[13] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_3:pulso[13] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_3:pulso[14] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_3:pulso[14] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_3:pulso[15] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_3:pulso[15] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_3:pulso[16] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_3:pulso[16] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_3:pulso[17] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_3:pulso[17] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_3:pulso[18] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_3:pulso[18] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_3:pulso[1]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; \process_3:pulso[1]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; \process_3:pulso[2]  ;
++--------+--------------+----------------+------------------+-------+------------+----------------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LED       ; clk        ; 5.498 ; 5.498 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LED       ; clk        ; 4.642 ; 4.642 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------------+
+; Propagation Delay                                        ;
++------------+-------------+-------+-------+-------+-------+
+; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
++------------+-------------+-------+-------+-------+-------+
+; botones[0] ; LED         ; 6.655 ; 6.638 ; 6.638 ; 6.655 ;
+; botones[1] ; LED         ; 6.647 ; 6.516 ; 6.516 ; 6.647 ;
+; botones[2] ; LED         ; 6.462 ; 6.637 ; 6.637 ; 6.462 ;
+; botones[3] ; LED         ; 4.026 ; 4.017 ; 4.017 ; 4.026 ;
+; botones[4] ; LED         ; 4.326 ; 4.191 ; 4.191 ; 4.326 ;
+; botones[5] ; LED         ; 6.629 ; 6.361 ; 6.361 ; 6.629 ;
+; botones[6] ; LED         ; 6.481 ; 6.373 ; 6.373 ; 6.481 ;
++------------+-------------+-------+-------+-------+-------+
+
+
++----------------------------------------------------------+
+; Minimum Propagation Delay                                ;
++------------+-------------+-------+-------+-------+-------+
+; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
++------------+-------------+-------+-------+-------+-------+
+; botones[0] ; LED         ; 6.418 ; 6.638 ; 6.638 ; 6.418 ;
+; botones[1] ; LED         ; 6.229 ; 6.516 ; 6.516 ; 6.229 ;
+; botones[2] ; LED         ; 6.272 ; 6.637 ; 6.637 ; 6.272 ;
+; botones[3] ; LED         ; 3.851 ; 4.017 ; 4.017 ; 3.851 ;
+; botones[4] ; LED         ; 3.781 ; 4.191 ; 4.191 ; 3.781 ;
+; botones[5] ; LED         ; 6.045 ; 6.361 ; 6.361 ; 6.045 ;
+; botones[6] ; LED         ; 6.055 ; 6.373 ; 6.373 ; 6.055 ;
++------------+-------------+-------+-------+-------+-------+
+
+
++--------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                            ;
++------------------+----------+-------+----------+---------+---------------------+
+; Clock            ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+----------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -4.983   ; 0.215 ; N/A      ; N/A     ; -1.941              ;
+;  clk             ; -4.983   ; 0.215 ; N/A      ; N/A     ; -1.941              ;
+; Design-wide TNS  ; -610.477 ; 0.0   ; 0.0      ; 0.0     ; -208.217            ;
+;  clk             ; -610.477 ; 0.000 ; N/A      ; N/A     ; -208.217            ;
++------------------+----------+-------+----------+---------+---------------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; LED       ; clk        ; 13.989 ; 13.989 ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LED       ; clk        ; 4.642 ; 4.642 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------+
+; Progagation Delay                                            ;
++------------+-------------+--------+--------+--------+--------+
+; Input Port ; Output Port ; RR     ; RF     ; FR     ; FF     ;
++------------+-------------+--------+--------+--------+--------+
+; botones[0] ; LED         ; 15.502 ; 15.480 ; 15.480 ; 15.502 ;
+; botones[1] ; LED         ; 15.458 ; 15.038 ; 15.038 ; 15.458 ;
+; botones[2] ; LED         ; 14.873 ; 15.373 ; 15.373 ; 14.873 ;
+; botones[3] ; LED         ; 10.428 ; 10.371 ; 10.371 ; 10.428 ;
+; botones[4] ; LED         ; 11.471 ; 11.020 ; 11.020 ; 11.471 ;
+; botones[5] ; LED         ; 15.594 ; 14.667 ; 14.667 ; 15.594 ;
+; botones[6] ; LED         ; 15.085 ; 14.664 ; 14.664 ; 15.085 ;
++------------+-------------+--------+--------+--------+--------+
+
+
++----------------------------------------------------------+
+; Minimum Progagation Delay                                ;
++------------+-------------+-------+-------+-------+-------+
+; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
++------------+-------------+-------+-------+-------+-------+
+; botones[0] ; LED         ; 6.418 ; 6.638 ; 6.638 ; 6.418 ;
+; botones[1] ; LED         ; 6.229 ; 6.516 ; 6.516 ; 6.229 ;
+; botones[2] ; LED         ; 6.272 ; 6.637 ; 6.637 ; 6.272 ;
+; botones[3] ; LED         ; 3.851 ; 4.017 ; 4.017 ; 3.851 ;
+; botones[4] ; LED         ; 3.781 ; 4.191 ; 4.191 ; 3.781 ;
+; botones[5] ; LED         ; 6.045 ; 6.361 ; 6.361 ; 6.045 ;
+; botones[6] ; LED         ; 6.055 ; 6.373 ; 6.373 ; 6.055 ;
++------------+-------------+-------+-------+-------+-------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 8464     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 8464     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 7     ; 7    ;
+; Unconstrained Input Port Paths  ; 7     ; 7    ;
+; Unconstrained Output Ports      ; 1     ; 1    ;
+; Unconstrained Output Port Paths ; 14    ; 14   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Sat Oct 08 20:49:25 2022
+Info: Command: quartus_sta piano -c piano
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'piano.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -4.983
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -4.983      -610.477 clk 
+Info (332146): Worst-case hold slack is 0.499
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.499         0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.941
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.941      -208.217 clk 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -1.009
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.009      -106.253 clk 
+Info (332146): Worst-case hold slack is 0.215
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.215         0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380      -140.380 clk 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4534 megabytes
+    Info: Processing ended: Sat Oct 08 20:49:26 2022
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+
