@@ -13,7 +13,7 @@ ENTITY p6 IS
 END;
 
 ARCHITECTURE Config OF p6 IS
-	CONSTANT pulso_maximo : NATURAL := 250000;  -- Timer 1s = 1 Hz
+	CONSTANT pulso_maximo : NATURAL := 25000000;  -- Timer 1s = 1 Hz
 	SIGNAL op : STD_LOGIC;
 	TYPE state_type IS (UNO, DOS, TRES);
 	SIGNAL estado, estado_siguiente : state_type;

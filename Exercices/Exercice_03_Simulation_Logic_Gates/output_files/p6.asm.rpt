@@ -1,5 +1,5 @@
 Assembler report for p6
-Tue Oct 11 23:21:02 2022
+Tue Oct 11 23:37:09 2022
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Tue Oct 11 23:21:02 2022 ;
+; Assembler Status      ; Successful - Tue Oct 11 23:37:09 2022 ;
 ; Revision Name         ; p6                                    ;
 ; Top-level Entity Name ; p6                                    ;
 ; Family                ; Cyclone II                            ;
@@ -117,14 +117,14 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Tue Oct 11 23:21:00 2022
+    Info: Processing started: Tue Oct 11 23:37:08 2022
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off p6 -c p6
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 4536 megabytes
-    Info: Processing ended: Tue Oct 11 23:21:02 2022
-    Info: Elapsed time: 00:00:02
+    Info: Processing ended: Tue Oct 11 23:37:09 2022
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 
