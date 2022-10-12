@@ -1,0 +1,6 @@
+
+State Machine - |p6|estado
+Name estado.TRES estado.DOS estado.UNO 
+estado.UNO 0 0 0 
+estado.DOS 0 1 1 
+estado.TRES 1 0 1 
