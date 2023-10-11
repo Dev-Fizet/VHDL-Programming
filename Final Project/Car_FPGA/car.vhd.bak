@@ -1,0 +1,149 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.std_logic_arith.ALL;
+USE ieee.std_logic_unsigned.ALL;
+
+ENTITY car IS
+
+	PORT (
+		clk, RESET: in STD_LOGIC;-- 
+		Leds : out STD_LOGIC_VECTOR(2 downto 0);
+		sensor_line_left,sensor_line_mid,sensor_line_right ,sensor_obstacle: in STD_LOGIC; --Sensor
+		Motor_EN_A,Motor_EN_B,op_test: out STD_LOGIC;
+		Init_Motor_A,Init_Motor_B :out STD_LOGIC_VECTOR(1 downto 0)); --Salida
+
+END;
+
+ARCHITECTURE Config OF car IS
+	CONSTANT pulso_maximo : NATURAL := 2500000/2;  -- Timer 1s = 1 Hz
+	SIGNAL op : STD_LOGIC;
+	TYPE state_type IS (UNO, DOS, TRES,CUATRO); --States
+	SIGNAL estado, estado_siguiente : state_type;
+	
+	signal cnt : unsigned(9 downto 0);
+	signal control_pwm : integer;
+	SIGNAL out_control_pwm : STD_LOGIC;
+constant pulso_maximo_pwm: natural := 500*2; --450 Hz
+
+CONSTANT pulso_maximo_timer : NATURAL := 25000*2;  -- Timer 1 ms = 1000 Hz
+	SIGNAL op_timer : STD_LOGIC;
+	signal contador_timer: std_logic_vector(9 downto 0);
+SIGNAL reset_soft : STD_LOGIC;
+ signal op_pwm: std_logic;
+ 
+BEGIN
+
+PROCESS (CLK) --Timer Time
+		VARIABLE pulso : NATURAL RANGE 0 TO pulso_maximo_timer;
+	BEGIN
+		IF (CLK'Event AND CLK = '1' AND pulso < (pulso_maximo_timer/2) - 1) THEN
+			op_timer <= '1';
+			pulso := pulso + 1;--Init of the timer 0 to 24,999,999 ticks Out=ON
+		ELSIF (CLK'Event AND CLK = '1' AND pulso < pulso_maximo_timer - 1) THEN
+			op_timer <= '0';
+			pulso := pulso + 1; --Init of the timer 25,000,000 to 49,999,999 tick Out= OFF
+		ELSIF (CLK'Event AND CLK = '1' AND pulso < pulso_maximo_timer) THEN
+			op_timer <= '1';
+			pulso := 0; --Init of reset timer in 50,000,000 ticks Out= ON and reset count of pulso
+		END IF;
+	END PROCESS;
+	
+	process(op_timer,reset_soft,contador_timer)
+	begin
+	if reset_soft='0' then contador_timer <=(others => '0');
+	elsif op_timer'event and op_timer='1' then contador_timer <=  std_logic_vector(contador_timer+1); 
+	end if;
+	end process;
+
+	op_test <= op_timer;
+ 
+
+process(clk) --Timer PWM
+	variable pulso: natural range 0 to pulso_maximo_pwm;
+	begin
+	if(CLK'Event and CLK='1' and pulso < (pulso_maximo_pwm/10)-1) then op_pwm<='1'; pulso :=pulso+1;
+	elsif(CLK'Event and CLK='1' and pulso < pulso_maximo_pwm -1) then op_pwm<='0'; pulso :=pulso+1;
+	elsif (CLK'Event and CLK='1' and pulso < pulso_maximo_pwm) then op_pwm<='1'; pulso :=0;
+	end if;
+	end process;
+	
+	contador: process(op_pwm,reset) begin
+	if reset='0' then cnt <= (others => '0');
+	elsif (op_pwm'Event and op_pwm='1') then 
+	      if cnt=110 then cnt <=(others => '0');
+	      else
+	         cnt <= cnt+1;
+	      end if;
+		end if;
+	end process;
+	
+	out_control_pwm <= '1' when (cnt < (control_pwm)) else '0';
+
+
+	PROCESS (CLK) --Timer 
+		VARIABLE pulso : NATURAL RANGE 0 TO pulso_maximo;
+	BEGIN
+		IF (CLK'Event AND CLK = '1' AND pulso < (pulso_maximo/2) - 1) THEN
+			op <= '1';
+			pulso := pulso + 1;--Init of the timer 0 to 24,999,999 ticks Out=ON
+		ELSIF (CLK'Event AND CLK = '1' AND pulso < pulso_maximo - 1) THEN
+			op <= '0';
+			pulso := pulso + 1; --Init of the timer 25,000,000 to 49,999,999 tick Out= OFF
+		ELSIF (CLK'Event AND CLK = '1' AND pulso < pulso_maximo) THEN
+			op <= '1';
+			pulso := 0; --Init of reset timer in 50,000,000 ticks Out= ON and reset count of pulso
+		END IF;
+	END PROCESS;
+   
+	arranque_motor:process(op,reset)
+	begin
+	   if reset='0' then estado <= UNO;
+		elsif op='1' and op'event then estado <= estado_siguiente;
+		end if;
+	end process arranque_motor;		
+
+   estados_motor:process(estado,sensor_obstacle,contador_timer)
+	begin
+	case estado is      --The sensor are LOW when are detecting 
+	     when UNO => if sensor_obstacle='1' then estado_siguiente <=UNO;    -- State Actual
+		              else estado_siguiente <= DOS;          -- Last State
+ 						  end if;
+		  when DOS => 
+		              if sensor_obstacle='0' then estado_siguiente <=DOS; 
+		              else estado_siguiente <= TRES; reset_soft<='0';
+			           end if;			  
+	     when TRES => 
+		              if contador_timer >="0000000001" then estado_siguiente <= CUATRO; reset_soft<='0';   
+		              else estado_siguiente <=TRES;  reset_soft<='1';
+						  end if;
+					  	  
+	      when CUATRO =>estado_siguiente <=UNO;
+						  	
+	end case;
+end process estados_motor;
+
+salida:process(estado)
+      begin
+		-- ¡¡Note!!  The bottons are normal HIGH and when is pressed change to LOW
+		case estado is      --100 faster 50 low
+		    when UNO    =>  Motor_EN_A <=out_control_pwm; Init_Motor_A<= "01";
+								  Motor_EN_B <=out_control_pwm; Init_Motor_B<= "01";
+								  leds<="011";
+								  control_pwm<=100;
+								  
+			 when DOS    =>  Motor_EN_A <=out_control_pwm; Init_Motor_A<= "10";
+								  Motor_EN_B <=out_control_pwm; Init_Motor_B<= "10";
+			                 leds<="001";
+								  control_pwm<=45;
+						
+			 when TRES   =>  Motor_EN_A <=out_control_pwm; Init_Motor_A<= "01";
+								  Motor_EN_B <=out_control_pwm; Init_Motor_B<= "10";
+								  control_pwm<=45;
+			                 leds<="000";
+								  
+			 when CUATRO   => leds<="110";					  
+								  
+		end case;
+end process salida;
+
+END Config;

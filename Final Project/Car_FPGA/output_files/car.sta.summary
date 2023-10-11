@@ -1,0 +1,101 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'clk'
+Slack : -5.811
+TNS   : -227.897
+
+Type  : Slow Model Setup 'op'
+Slack : -2.346
+TNS   : -10.452
+
+Type  : Slow Model Setup 'op_pwm'
+Slack : -2.150
+TNS   : -18.459
+
+Type  : Slow Model Setup 'sensor_line_left'
+Slack : -1.037
+TNS   : -4.858
+
+Type  : Slow Model Hold 'clk'
+Slack : -1.516
+TNS   : -2.166
+
+Type  : Slow Model Hold 'sensor_line_left'
+Slack : -0.477
+TNS   : -2.540
+
+Type  : Slow Model Hold 'op_pwm'
+Slack : 0.752
+TNS   : 0.000
+
+Type  : Slow Model Hold 'op'
+Slack : 1.775
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'clk'
+Slack : -1.941
+TNS   : -82.077
+
+Type  : Slow Model Minimum Pulse Width 'sensor_line_left'
+Slack : -1.777
+TNS   : -1.777
+
+Type  : Slow Model Minimum Pulse Width 'op_pwm'
+Slack : -0.742
+TNS   : -14.840
+
+Type  : Slow Model Minimum Pulse Width 'op'
+Slack : -0.742
+TNS   : -11.872
+
+Type  : Fast Model Setup 'clk'
+Slack : -1.160
+TNS   : -37.496
+
+Type  : Fast Model Setup 'op'
+Slack : -0.440
+TNS   : -0.440
+
+Type  : Fast Model Setup 'op_pwm'
+Slack : -0.010
+TNS   : -0.034
+
+Type  : Fast Model Setup 'sensor_line_left'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Hold 'clk'
+Slack : -1.085
+TNS   : -1.937
+
+Type  : Fast Model Hold 'sensor_line_left'
+Slack : -0.491
+TNS   : -1.618
+
+Type  : Fast Model Hold 'op_pwm'
+Slack : 0.242
+TNS   : 0.000
+
+Type  : Fast Model Hold 'op'
+Slack : 0.618
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'clk'
+Slack : -1.380
+TNS   : -55.380
+
+Type  : Fast Model Minimum Pulse Width 'sensor_line_left'
+Slack : -1.222
+TNS   : -1.222
+
+Type  : Fast Model Minimum Pulse Width 'op_pwm'
+Slack : -0.500
+TNS   : -10.000
+
+Type  : Fast Model Minimum Pulse Width 'op'
+Slack : -0.500
+TNS   : -8.000
+
+------------------------------------------------------------

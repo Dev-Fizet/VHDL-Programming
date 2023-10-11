@@ -1,0 +1,13 @@
+
+State Machine - |car|estado
+Name estado.Follow_Line_Dir_Right estado.Follow_Line_Dir_Left estado.Follow_Line_Init estado.CUATRO estado.Move_Car_Right estado.Move_Car_Left estado.TRES_1 estado.TRES estado.DOS estado.UNO 
+estado.UNO 0 0 0 0 0 0 0 0 0 0 
+estado.DOS 0 0 0 0 0 0 0 0 1 1 
+estado.TRES 0 0 0 0 0 0 0 1 0 1 
+estado.TRES_1 0 0 0 0 0 0 1 0 0 1 
+estado.Move_Car_Left 0 0 0 0 0 1 0 0 0 1 
+estado.Move_Car_Right 0 0 0 0 1 0 0 0 0 1 
+estado.CUATRO 0 0 0 1 0 0 0 0 0 1 
+estado.Follow_Line_Init 0 0 1 0 0 0 0 0 0 1 
+estado.Follow_Line_Dir_Left 0 1 0 0 0 0 0 0 0 1 
+estado.Follow_Line_Dir_Right 1 0 0 0 0 0 0 0 0 1 
